@@ -12,6 +12,7 @@
 </script>
 
 <style>
+  @import "./styles/global.scss";
   .container {
     height: 100%;
     display: flex;

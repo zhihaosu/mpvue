@@ -98,7 +98,34 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
-      }
+      },
+      {
+        test: /\.scss$/,
+        include: [resolve('src'), resolve('test')],
+        use: [
+          {
+            loader: 'vue-style-loader'
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: 'true'
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
     ]
   },
   plugins: [
