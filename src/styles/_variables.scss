@@ -1,0 +1,41 @@
+/**
+ * Created by Wu Jian Ping on 2017/05/10.
+ */
+
+$cdn-root: 'http://localhost:8080';
+@if $env == 'sit' {
+  $cdn-root: 'http://sitcache.qixin007.com/m-web-wechat';
+} @else if $env == 'uat' {
+  $cdn-root: 'http://uatcache.qixin007.com/m-web-wechat';
+} @else if $env == 'prod' {
+  $cdn-root: 'http://cache.qixin.com/m-web-wechat';
+}
+
+
+$color-m1: #1da9ff; //系统主色，多用于按钮背景颜色、link字体颜色等
+$color-f1: #212121; //字体颜色，多用于标题
+$color-f2: #666; //字体颜色，多用于主要内容
+$color-f3: #7c7c7c; //字体颜色，多用于标签内容
+$color-f4: #999; //字体颜色，多用于次要内容
+$color-f5: #a0a0a0; //字体颜色，多用于icon-font
+$color-f6: #43464f; //字体颜色，多用于内容
+$color-b1: #e7e7e7; //边框颜色
+$color-b2: #f5f5f5; //主体背景颜色
+$color-b3: #e3e3e3; //边框颜色
+$color-a1: #2eb5a9; //辅助色
+$color-a2: #ffa43e; //辅助色
+$color-a3: #477db2; //辅助色
+$color-a4: #333; //辅助色
+$color-a5: #0fbbe9;
+$color-a6: #fff;
+$color-a7: #7a808f;
+$color-a8: #b1b1b1; // 搜索条数显示
+$color-a9: #f5573e; // 数字
+$color-a10: #7687de;
+$nprogress-zindex: 3100 !default;
+$index-z1: 1; //z-index值， 多用于页面底部
+$index-z2: 100;
+$index-z3: 101;
+$index-body: 99;
+$bottom-height: 60px;
+$grid-gutter-width: 30px !default;

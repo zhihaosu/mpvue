@@ -98,15 +98,7 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
-      },
-      {
-        test: /\.scss$/,
-        include: [resolve('src'), resolve('test')],
-        loader: 'sass-loader',
-        options: {
-          sourceMap: true
-        }
-      },
+      }
     ]
   },
   plugins: [

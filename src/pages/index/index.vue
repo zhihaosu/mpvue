@@ -19,6 +19,7 @@
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy"/>
     </form>
     <a href="/pages/counter/main" class="counter text-center">去往Vuex示例页面</a>
+    <a href="/pages/home/main" class="counter text-center" open-type="redirect">跳转到首页</a>
   </div>
 </template>
 
@@ -67,7 +68,7 @@
     },
 
     mounted() {
-      console.log(this.$store)
+      // console.log(this.$store)
     }
   }
 </script>
@@ -80,9 +81,9 @@
   }
 
   .userinfo-avatar {
-    width: 128rpx;
-    height: 128rpx;
-    margin: 20rpx;
+    width: 64px;
+    height: 64px;
+    margin: 10px;
     border-radius: 50%;
   }
 
@@ -91,7 +92,7 @@
   }
 
   .usermotto {
-    margin-top: 150px;
+    margin-top: 15px;
   }
 
   .form-control {
