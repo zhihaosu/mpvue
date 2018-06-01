@@ -12,12 +12,37 @@ var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 
 var env = config.build.env
 
+var rules = utils.styleLoaders({
+  sourceMap: config.build.productionSourceMap,
+  extract: true
+}).concat([
+  {
+    test: /\.(ico|gif|png|jpg|jpeg|webp)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name]-[hash:8].[ext]'
+        }
+      }
+    ]
+  },
+  {
+    test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name]-[hash:8].[ext]'
+        }
+      }
+    ]
+  }
+])
+
 var webpackConfig = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.build.productionSourceMap,
-      extract: true
-    })
+    rules: rules
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {

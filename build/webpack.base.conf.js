@@ -76,30 +76,6 @@ module.exports = {
         ]
       },
       {
-        test: /\.(ico|gif|png|jpg|jpeg|webp)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: utils.assetsPath('images/[name]-[hash:8].[ext]')
-            }
-          }
-        ]
-      },
-
-      {
-        test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: utils.assetsPath('media/[name]-[hash:8].[ext]')
-            }
-          }
-        ]
-      },
-
-      {
         test: /\.(woff2?|ttf|eot|svg)(\?[\s\S])?$/,
         use: [
           {

@@ -17,12 +17,38 @@ var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 //   baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
 // })
 
+var rules = utils.styleLoaders({
+  sourceMap: config.dev.cssSourceMap,
+  extract: true
+}).concat([
+  {
+    test: /\.(ico|gif|png|jpg|jpeg|webp)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      }
+    ]
+  },
+
+  {
+    test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]'
+        }
+      }
+    ]
+  }
+])
+
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({
-      sourceMap: config.dev.cssSourceMap,
-      extract: true
-    })
+    rules: rules
   },
   // cheap-module-eval-source-map is faster for development
   // devtool: '#cheap-module-eval-source-map',
