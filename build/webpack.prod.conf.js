@@ -22,7 +22,7 @@ var rules = utils.styleLoaders({
       {
         loader: 'file-loader',
         options: {
-          name: 'images/[name]-[hash:8].[ext]'
+          name: 'public/[name]-[hash:8].[ext]'
         }
       }
     ]
