@@ -5,7 +5,14 @@ if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV)
 }
 
-// var opn = require('opn')
+var util = require('./tools/util')
+var env = 'dev'
+if (process.argv.length >= 3) {
+  env = process.argv[2]
+}
+util.generateEvnFile(env)
+
+var opn = require('opn')
 var path = require('path')
 var express = require('express')
 var webpack = require('webpack')
@@ -45,7 +52,7 @@ var compiler = webpack(webpackConfig)
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {target: options}
   }
   app.use(proxyMiddleware(options.filter || context, options))
 })
@@ -84,15 +91,20 @@ var readyPromise = new Promise(resolve => {
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = port
   portfinder.getPortPromise()
-  .then(newPort => {
+    .then(newPort => {
       if (port !== newPort) {
         console.log(`${port}端口被占用，开启新端口${newPort}`)
       }
-      var server = app.listen(newPort, 'localhost')
       // for 小程序的文件保存机制
-      require('webpack-dev-middleware-hard-disk')(compiler, {
+      app.use(require('webpack-dev-middleware')(compiler, {
         publicPath: webpackConfig.output.publicPath,
         quiet: true
+      }))
+      var server = app.listen(newPort, function (err) {
+        if (err) {
+          throw err
+        }
+        console.log(`Listening at http://localhost:${newPort}/`) // eslint-disable-line
       })
       resolve({
         ready: readyPromise,
@@ -100,7 +112,7 @@ module.exports = new Promise((resolve, reject) => {
           server.close()
         }
       })
-  }).catch(error => {
+    }).catch(error => {
     console.log('没有找到空闲端口，请打开任务管理器杀死进程端口再试', error)
   })
 })

@@ -76,28 +76,36 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[ext]')
-        }
+        test: /\.(ico|gif|png|jpg|jpeg|webp)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: utils.assetsPath('images/[name]-[hash:8].[ext]')
+            }
+          }
+        ]
       },
+
       {
-        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('media/[name]].[ext]')
-        }
+        test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: utils.assetsPath('media/[name]-[hash:8].[ext]')
+            }
+          }
+        ]
       },
+
       {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('fonts/[name].[ext]')
-        }
+        test: /\.(woff2?|ttf|eot|svg)(\?[\s\S])?$/,
+        use: [
+          {
+            loader: 'url-loader'
+          }
+        ]
       }
     ]
   },

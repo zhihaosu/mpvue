@@ -10,11 +10,21 @@ var webpack = require('webpack')
 var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
 
+var util = require('./tools/util')
+
+var env = 'prod'
+if (process.argv.length >= 3) {
+  env = process.argv[2]
+}
+
+util.generateEvnFile(env)
+
 var spinner = ora('building for production...')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, '*'), err => {
   if (err) throw err
+  webpackConfig.output.publicPath = util.getPublicPath(env)
   webpack(webpackConfig, function (err, stats) {
     spinner.stop()
     if (err) throw err

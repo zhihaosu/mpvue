@@ -9,6 +9,7 @@
       <input class="search-input padding-l-0-6x" v-model="key" type="text" name="search" placeholder="请输入企业名，人名，品牌名等" />
     </div>
   </div>
+  <img src="./images/finance2.png"/>
 </div>
 </template>
 
@@ -35,7 +36,7 @@
     overflow: hidden;
     width: 375px;
     height: 198px;
-    background-image: url('#{$cdn-root}/static/img/tanner.png');
+    background-image: url('./images/tanner.png');
     background-size: 100%;
   }
 
