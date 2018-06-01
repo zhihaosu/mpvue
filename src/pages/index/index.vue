@@ -18,8 +18,8 @@
       <input type="text" class="form-control" v-model="motto" placeholder="v-model"/>
       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy"/>
     </form>
-    <a href="/pages/counter/main" class="counter text-center">去往Vuex示例页面</a>
-    <a href="/pages/home/main" class="counter text-center" open-type="redirect">跳转到首页</a>
+    <a href="/pages/counter/index" class="counter text-center">去往Vuex示例页面</a>
+    <a href="/pages/home/index" class="counter text-center" open-type="redirect">跳转到首页</a>
   </div>
 </template>
 

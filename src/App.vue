@@ -12,14 +12,14 @@
 </script>
 
 <style lang="scss">
-  @import "./styles/common.scss";
+  @import "./styles/global.scss";
   .container {
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: rpx(200) 0;
+    padding: 100px 0;
     box-sizing: border-box;
   }
 

@@ -12,10 +12,7 @@
 
 <script>
   import { mapState, mapMutations } from 'vuex'
-  import store from '../../store'
-
   export default {
-    store,
     computed: {
       ...mapState('appState', ['count'])
     },

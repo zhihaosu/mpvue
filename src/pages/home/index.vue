@@ -10,6 +10,9 @@
     </div>
   </div>
   <img src="./images/finance2.png"/>
+  <div>
+    <span class="icon icon-icon_back"></span>
+  </div>
 </div>
 </template>
 
